@@ -44,7 +44,8 @@ const formatDate = (timestamp) => {
     }
   );
 
-const thoughtSchema = new Schema({
+const thoughtSchema = new Schema(
+  {
     username:{
         type: String,
         required: true
@@ -60,17 +61,19 @@ const thoughtSchema = new Schema({
         get: formatDate
     },
     reactions: [reactionSchema],
+  },
+  {
     toJSON:{
         virtuals: true,
         getters: true,
     },
-    id: false,   
+    id: false,  
 });
 
 thoughtSchema.virtual('reactionCount').get(function(){
     return this.reactions.length;
 })
 
-const Thought = model('Throught', thoughtSchema);
+const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;
