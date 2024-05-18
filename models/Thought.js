@@ -50,7 +50,7 @@ const thoughtSchema = new Schema(
         type: String,
         required: true
     },
-    thoughText: {
+    thoughtText: {
         type: String,
         required: true,
         maxlength: 280
